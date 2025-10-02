@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+:root {
+    --primary: #ffffff;
+    --secondary: #888888;
+    --bg: #000000;
+    --danger: #ff0000;
+    --warning: #ffff00;
+    --border-width: 2px;
+}
+
+@theme{
+    --color-primary: var(--primary);
+    --color-secondary: var(--secondary);
+    --color-bg: var(--bg);
+    --color-danger: var(--danger);
+    --color-warning: var(--warning);
+}
+
+p, h1, h2, h4, h5, h6, label, div, button {
+    font-family: Consolas, serif;
+    color: var(--primary);
+}
+
+body {
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}

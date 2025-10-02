@@ -1,0 +1,1 @@
+export const GroupSelected = Symbol('GroupSelected')
