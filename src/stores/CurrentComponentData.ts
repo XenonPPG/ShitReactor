@@ -1,9 +1,12 @@
 import { defineStore } from 'pinia'
-import {ref} from "vue";
+import {computed, ref} from "vue";
 import type ReactorComponent from "@/ts/reactor/ReactorComponent.ts";
+import ReactorComponentData from "@/ts/reactor/ReactorComponentData.ts";
+import {useRoute} from "vue-router";
 
 export const useCurrentComponentData = defineStore('CurrentComponentData', () => {
-    const component = ref<ReactorComponent | null>();
+    const route = useRoute();
+    const component = computed(() => ReactorComponentData[route.params.name]);
 
     return {component}
 })

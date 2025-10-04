@@ -28,3 +28,7 @@ body {
     flex-direction: column;
     height: 100vh;
 }
+
+.flex-center{
+    @apply flex items-center justify-center;
+}

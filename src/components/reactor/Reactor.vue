@@ -2,11 +2,13 @@
 import {ref} from "vue";
 import Buffer from "@/components/reactor/reactor_components/Buffer.vue";
 import CentralValve from "@/components/reactor/reactor_components/CentralValve.vue";
-
-const selected = ref();
+import Turbine from "@/components/reactor/reactor_components/Turbine.vue";
 </script>
 
 <template>
-  <Buffer/>
-  <CentralValve/>
+  <div class="flex flex-col items-start">
+    <Buffer/>
+    <CentralValve/>
+    <Turbine/>
+  </div>
 </template>

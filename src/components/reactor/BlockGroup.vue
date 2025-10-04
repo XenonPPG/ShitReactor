@@ -3,7 +3,9 @@ import {computed, provide, ref, watch} from 'vue'
 import {GroupSelected} from './groupSelectedSymbol'
 import ReactorComponent from "@/ts/reactor/ReactorComponent.ts";
 import {useCurrentComponentData} from "@/stores/CurrentComponentData.ts";
+import {useRouter} from "vue-router";
 
+const router = useRouter();
 const currentComponent = useCurrentComponentData();
 
 const props = defineProps({
@@ -15,14 +17,20 @@ const selected = computed(() => currentComponent.component?.name == props.reacto
 
 provide(GroupSelected, selected)
 
-function toggle() {
-  currentComponent.component = selected.value ? null : props.reactorComponent;
+function Reroute(){
+  if(currentComponent.component?.name == props.reactorComponent?.name){
+    router.push("/")
+  }
+  else{
+    router.push("/reactor/" + props.reactorComponent?.name)
+  }
 }
 </script>
 
 <template>
   <button
-      @click.stop="toggle"
+      @click.stop="Reroute"
+      :to="'/reactor/' + props.reactorComponent?.name"
       class="hover:cursor-pointer">
     <slot/>
   </button>

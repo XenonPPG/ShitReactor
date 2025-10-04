@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="flex items-center px-10 h-20 border-b-1 border-primary">
-    <h1 class="text-4xl">Shit Reactor</h1>
+  <div class="flex items-center h-20 border-b-1 border-primary">
+    <RouterLink to="/" class="text-4xl p-10 h-full flex-center border-r-1">Shit Reactor</RouterLink>
   </div>
 </template>

@@ -9,25 +9,25 @@ const componentStatus = computed(() => currentComponent.component?.status ?? Sta
 </script>
 
 <template>
-  <div v-if="currentComponent.component" class="flex flex-col gap-5">
+  <div class="flex flex-col gap-5">
     <div>
       <p class="!text-secondary text-sm">компонент:</p>
-      <h1 class="text-5xl">{{ currentComponent.component?.name }}</h1>
+      <h1 class="text-5xl">{{ currentComponent.component?.name ?? "NULL" }}</h1>
     </div>
 
     <p>Статус: <span :style="'color: ' + StatusColors[componentStatus]">{{ Status[componentStatus] }}</span></p>
 
     <div>
       <p class="!text-secondary text-sm">описание:</p>
-      <p>{{ currentComponent.component?.description }}</p>
+      <p>{{ currentComponent.component?.description ?? "NULL" }}</p>
     </div>
 
     <div>
-      <p class="!text-secondary text-sm">параметры:</p>
-      <p v-for="param in currentComponent.component.params">{{ param.name }}: <span class="!text-secondary">[</span>min<span
-          class="!text-secondary">:</span>{{ param.min ?? "?" }} - max<span class="!text-secondary">:</span>{{
+      <p v-if="currentComponent.component" class="!text-secondary text-sm">параметры:</p>
+      <p v-for="param in currentComponent.component?.params">{{ param.phys.name }}: <span class="!text-secondary">[</span>min<span
+          class="!text-secondary">:</span>{{ param.min ?? 0 }} - max<span class="!text-secondary">:</span>{{
           param.max
-        }}<span class="!text-secondary">]</span>{{ param.unit }}</p>
+        }}<span class="!text-secondary">]</span>{{ param.phys.unit }}</p>
     </div>
   </div>
 </template>
