@@ -13,9 +13,9 @@ import ReactorComponentData from "@/ts/reactor/ReactorComponentData.ts";
       <Block class="h-7 w-3 -mt-2"/>
 
       <!-- diesel generators -->
-      <BlockGroup class="absolute flex flex-col items-center -top-27 left-11" :reactor-component="ReactorComponentData['diesel-generators']">
+      <BlockGroup class="absolute flex items-center -top-27 -left-4" :reactor-component="ReactorComponentData['diesel-generators']">
         <Block class="size-12"/>
-        <Block class="w-5 h-15"/>
+        <Block class="w-10 h-5"/>
       </BlockGroup>
 
       <Block class="h-10 w-5 -mt-2"/>

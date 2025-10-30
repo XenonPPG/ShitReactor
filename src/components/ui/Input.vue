@@ -1,7 +1,7 @@
 <script setup lang="ts">
-
+const model = defineModel();
 </script>
 
 <template>
-<input class="border-primary border-1 px-2"/>
+<input v-model="model" class="border-primary border-1 px-2"/>
 </template>

@@ -11,6 +11,7 @@ const props = withDefaults(defineProps<{
 
 const slots = useSlots()
 
+const common = "hover:cursor-pointer bg-bg"
 const classes = {
   'default': "text-xl border-1 border-primary p-3 hover:bg-primary hover:!text-black",
   'link': "bg-secondary/30 before:content-['>_'] hover:bg-secondary",
@@ -25,12 +26,12 @@ const render = () => {
   if (props.asChild && children && children.length === 1) {
     const child = children[0]
     return cloneVNode(child, {
-      class: [classes[props.variant], child.props?.class, 'hover:cursor-pointer']
+      class: [classes[props.variant], child.props?.class, common]
     })
   }
 
   // обычный случай — рендерим кнопку
-  return h('button', { class: [classes[props.variant], 'hover:cursor-pointer'] }, children)
+  return h('button', { class: [classes[props.variant], common] }, children)
 }
 </script>
 

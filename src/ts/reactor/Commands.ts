@@ -1,4 +1,5 @@
 import {StartReactor} from "@/ts/reactor/ReactorUpdate.ts";
+import {TerminalMessage, useTerminal} from "@/stores/Terminal.ts";
 
 export class Command {
     name: string;
@@ -10,5 +11,8 @@ export class Command {
 }
 
 export const Commands: Command[] = [
-    new Command("reactor start", StartReactor)
+    new Command("reactor start", StartReactor),
+    new Command("ping", () => {
+        useTerminal().SendMessage(new TerminalMessage("pong", "sys"));
+    })
 ]

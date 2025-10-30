@@ -1,5 +1,5 @@
 import ReactorComponent from "@/ts/reactor/ReactorComponent.ts";
-import {Pressure, ReactorComponentParams, Voltage, Volume} from "@/ts/reactor/ReactorComponentParams.ts";
+import {Pressure, ReactorComponentParams, Temperature, Voltage, Volume} from "@/ts/reactor/ReactorComponentParams.ts";
 
 let ReactorComponentData = {
     "buffer": new ReactorComponent(
@@ -20,8 +20,8 @@ let ReactorComponentData = {
         "fuel-pump",
         "Насос для говна бля",
         new ReactorComponentParams({
-            pressure: {default: 100, min: 50, max:300, phys: Pressure},
-            voltage: {default: 100, min: 50, max:300, phys: Voltage}
+            pressure: {default: 100, min: 50, max: 300, phys: Pressure},
+            voltage: {default: 100, min: 50, max: 300, phys: Voltage}
         })),
 
     "turbine": new ReactorComponent(
@@ -37,6 +37,15 @@ let ReactorComponentData = {
         "Запасной источник энергии. Способен поддерживать весь комплекс на протяжении 3 минут",
         new ReactorComponentParams({
             voltage: {default: 8000, max: 12000, phys: Voltage},
+        })
+    ),
+
+    "main-block": new ReactorComponent(
+        "main-block",
+        "Главный блок биореактора. Раскладывает гавно на нейтроны и собирает выделившиеся от распада электроны в коллекторы. Побочное тепло используется для вращения турбины и дополнительной энергии",
+        new ReactorComponentParams({
+            voltage: {default: 36000, min:12000 ,max: 800000, phys: Voltage},
+            temperature: {default: 500, min: 200, max: 4000, phys: Temperature},
         })
     )
 }
